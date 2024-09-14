@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+<style>
+   .h3{
+      background-color: white;
+      color:black;
+   }
+   .box{
+      background: black;
+      color: white;
+    }
+
+    .bg-light{
+      background:grey;
+      color:black;
+    }
+  
+   .container{
+      width: 100%;
+      padding: 10px;
+      background:white;
+      color:white;
+   }
+
+  .form{
+   width: 50%;
+   margin: 0 auto;
+   background:white;
+   color:white;
+  }
+
+  .btn{
+   background-color:rgb(124, 158, 179);
+   color: white;
+  }
+</style>
+<div class="row">   
+   <div class="box col-8">
+      <h3 class="bg">Products</h3>
+       {% for covers in cart %}
+      <div class="row m-2" >
+         <div class="col-6">
+            <img src="{{ covers.cid.image.url }}" alt="Image not available" width="100%" height="100%">
+         </div>
+         <div class="col-6">
+            <h3>{{ covers.cid.name }}</h3>
+            <strong>Rs. {{ covers.cid.price }}</strong><br>
+            <h4>Quantity:        
+            <strong> {{covers.quantity}}</strong>
+            </h4>
+         </div>         
+      </div>
+     {% endfor %}
+   </div>
+   <div class="box col-4">
+      <h3 class="">Summary</h3>
+         <h4>Items Count: {{count}}</h4>
+         <h4>Total Amount: Rs. {{total}}</h4>
+         <br>
+         <a class="btn" href="/makepayment">Make Payment</a>
+         <a class="btn" href="/showcart">Back To cart</a>
+      </h3>
+   </div>
+</div> 
+
+{% endblock 'main' %}

@@ -1,0 +1,42 @@
+{% load static %}
+<style>
+  .box{
+    background: black;
+    color: black;
+  }
+
+  .bg-light{
+    background:grey;
+    color:black;
+  }
+
+.col{
+  float: right;
+  position: fixed;
+  background-color:black;
+  color: white;
+}
+
+.btn{
+  background-color:  rgb(124, 158, 179);
+  color: white;
+}
+</style>
+
+<div class="box col-2 bg-light"><br>       
+    
+    <h4 class="mt-2">Filter By Price</h4>
+    <hr>
+    <form action="/range">
+          <h5><label class="col-form-label">Min:</label></h5>            
+          <input type="text"  class="form-control" name="min"><br>            
+          <h5><label class="col-form-label">Max:</label></h5>                
+          <input type="text"  name="max" class="form-control"><br>             
+          <input class="mt-4 btn " type="submit" value="Search">
+    </form>
+    <br><br>
+    <h4 class="mt-2"> Sort By Price </h4>
+    <hr>
+    <h6><a href="/sort/asc">Low to High</a></h6><br>
+    <h6><a href="/sort/desc">High to Low</a></h6><br><br><br>      
+ </div> 

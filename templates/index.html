@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+<div class="container">
+    <div class="row">
+    <!-- product 1 -->
+    {% for cover in covers %}
+    <div class="card col-md-3 m-4"  height="100%" style="width:20em;">
+        <img src="{{cover.image.url}}" class="card-img-top"  alt="Image not available">
+        <div class="card-body">
+            <h5 class="card-title">{{cover.name}}</h5>
+            <p class="card-text">{{cover.description}}
+            </p>
+            <strong>Rs.{{cover.price}}</strong>
+            <br><br>
+            <a href="showcart/" class="btn ">Add to Cart</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock 'main'%}

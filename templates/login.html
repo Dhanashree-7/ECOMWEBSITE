@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+<style>
+   .box{
+      background: black;
+      color: white;
+    }
+
+    .bg-light{
+      background:grey;
+      color:black;
+    }
+  
+   .container{
+
+      width: 100%;
+      padding: 10px;
+      background:white;
+      color:black;
+   }
+
+  .form{
+   width: 50%;
+   margin: 0 auto;
+   background:white;
+   color:white;
+  }
+
+  .btn{
+   background-color:rgb(124, 158, 179);
+   color: white;
+  }
+</style>
+<div class="row">               
+   <form action="" method="post" class="col-md-4 mx-auto mt-5 shadow rounded p-4">
+      {% csrf_token %}
+      <h3>Login</h3>
+      {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS  %}
+            <div class="alert alert-success">
+               {{ message }}
+            </div>
+         {% endif %}
+      {% endfor %}
+      {% if error %}
+      <div class="alert alert-danger">
+         {{ error }}
+      </div>
+      {% endif %}
+      <div class="form-group">
+         <label >Username:</label>
+         <input type="text" class="form-control" name="username" >
+       </div>
+       <div class="form-group">
+         <label >Password:</label>
+         <input type="password" class="form-control" name="password" >
+       </div>
+       <input type="submit" class=" mt-2 btn " value="Login">
+       &nbsp; &nbsp;
+       Not a user? <a href="/registration">Sign Up</a> 
+   </form>
+</div>
+{% endblock 'main' %}
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+<style>
+  .box{
+     background: black;
+     color: white;
+   }
+
+   .bg-light{
+    background:grey;
+    color:black;
+  }
+
+</style>
+<div class="row">               
+   <form action="" method="post" class="col-md-4 mx-auto mt-5 shadow rounded p-2">
+      {% csrf_token %}
+      <h3>Registration</h3>
+      {% if error %}
+      <div class="alert alert-danger">
+         {{ error }}
+      </div>
+      {% endif %}
+      <div class="form-group">
+         <label >Username:</label>
+         <input type="text" class="form-control" name="username">
+       </div>
+       <div class="form-group">
+         <label >Email:</label>
+         <input type="email" class="form-control" name="email" >
+       </div>
+       <div class="form-group">
+         <label >Password:</label>
+         <input type="password" class="form-control" name="password">
+       </div>
+       <div class="form-group">
+         <label >Confirm Password:</label>
+         <input type="password" class="form-control" name="confirmpassword">
+       </div>
+       <input type="submit" class=" mt-2 btn " value="Register">
+       &nbsp; &nbsp;
+       Already a user? <a href="/login">Sign In</a> 
+   </form>
+</div>
+{% endblock 'main' %}
